@@ -1,0 +1,127 @@
+[PROJECT]
+Target=main.hex
+Processor_Text=PIC16F877A
+CCSVerions=5.101
+Compiler=PCM
+CCSVersion=5.015
+Development_Mode=
+ToolSuite=CCS
+[Target Data]
+FileList=main.c
+BuildTool=C-COMPILER
+OptionString=+FM
+AdditionalOptionString=
+BuildRequired=1
+[Directories]
+Include=<default>\;C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\
+Library=
+LinkerScript=
+output=
+[D:\SPKT K19\Nam 3 SPKT\ky 2\DoAn1\Test\Eprom\main]
+Type=4
+[mru-list]
+1=main.c
+
+[fileformats]
+forcecoff=0
+debug=4
+error=2
+object=0
+list=0
+scratch=0
+sta=1
+tre=1
+expandtree=0
+allerrors=1
+allwarnings=1
+stayupne=3
+stayupoe=0
+
+[ProjectLog]
+Days=3
+D1=09-06-2022
+D1_L=4
+D1_L1=[1692]Project Opened.
+D1_L2=[1722]Started Editing.
+D1_L3=[2063]Stopped Editing.
+TotalEdit=48
+TotalDebug=0
+D1_E=1
+D1_D=0
+D1_L4=[4443]Project Closed.
+D2=10-06-2022
+D2_L=20
+D2_L1=[6157]Project Opened.
+D2_L2=[6245]Started Editing.
+D2_L3=[6790]Stopped Editing.
+D2_L4=[6912]Started Editing.
+D2_L5=[7257]Stopped Editing.
+D2_L6=[7280]Started Editing.
+D2_L7=[8220]Stopped Editing.
+D2_L8=[8317]Started Editing.
+D2_L9=[8658]Stopped Editing.
+D2_L10=[9391]Started Editing.
+D2_L11=[9700]Stopped Editing.
+D2_L12=[10032]Started Editing.
+D2_L13=[10407]Stopped Editing.
+D2_L14=[10661]Started Editing.
+D2_L15=[11324]Stopped Editing.
+D2_L16=[11639]Started Editing.
+D2_L17=[11939]Stopped Editing.
+D2_E=24
+D2_D=0
+D2_L18=[12003]Project Closed.
+D2_L19=[43820]Project Opened.
+D2_L20=[46461]Project Closed.
+D3=14-06-2022
+D3_L=13
+D3_L1=[44125]Project Opened.
+D3_L2=[46995]Started Editing.
+D3_L3=[47474]Stopped Editing.
+D3_L4=[47586]Started Editing.
+D3_L5=[48405]Stopped Editing.
+D3_L6=[48823]Started Editing.
+D3_L7=[49155]Stopped Editing.
+D3_E=23
+D3_D=0
+D3_L8=[49164]Stopped Editing.
+D3_L9=[56004]Started Editing.
+D3_L10=[56600]Stopped Editing.
+D3_L11=[57524]Started Editing.
+D3_L12=[57824]Stopped Editing.
+D3_L13=[58136]Project Closed.
+
+[Opened Files]
+1=main.c
+t1=1
+Count=3
+2=main.h
+t2=1
+3=C:\Program Files (x86)\PICC\Devices\16F877A.h
+t3=1
+4=lcd.h
+5=Keypad.h
+6=
+[main.c]
+Type=4
+Path=
+FileList=
+BuildTool=
+OptionString=
+AdditionalOptionString=
+
+[defines]
+buildcount=118
+enabled=0
+chip=1
+D1=
+V1=
+
+[Windows]
+0=0000 %S 0 0 796 451 3 0
+
+[CompilerVersion]
+Fixed=
+[Units]
+Count=1
+1=main (main)

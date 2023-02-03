@@ -1,0 +1,7 @@
+#include <16F877A.h>
+#device ADC=10
+#define _XTAL_FREQ  20000000
+#use delay(crystal=20000000)
+#include <lcd.h>
+#include <Keypad.h>
+

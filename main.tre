@@ -1,0 +1,242 @@
+ÀÄmain
+   ÃÄMAIN  1/317  Ram=1
+   ³  ÃÄ@cinit1  (Inline)  Ram=0
+   ³  ÃÄInit_system  0/139  Ram=0
+   ³  ³  ÃÄinit_screen  (Inline)  Ram=0
+   ³  ³  ³  ÃÄlcd_init  (Inline)  Ram=2
+   ³  ³  ³  ³  ÃÄ@delay_ms2  0/21  Ram=1
+   ³  ³  ³  ³  ÃÄlcd_send_nibble  0/47  Ram=1
+   ³  ³  ³  ³  ÃÄ@delay_ms2  0/21  Ram=1
+   ³  ³  ³  ³  ÃÄlcd_send_nibble  0/47  Ram=1
+   ³  ³  ³  ³  ÃÄ@const786  0/8  Ram=0
+   ³  ³  ³  ³  ÀÄlcd_send_byte  0/93  Ram=3
+   ³  ³  ³  ³     ÃÄlcd_read_byte  (Inline)  Ram=3
+   ³  ³  ³  ³     ³  ÃÄlcd_read_nibble  0/49  Ram=2
+   ³  ³  ³  ³     ³  ÀÄlcd_read_nibble  0/49  Ram=2
+   ³  ³  ³  ³     ÃÄlcd_send_nibble  0/47  Ram=1
+   ³  ³  ³  ³     ÀÄlcd_send_nibble  0/47  Ram=1
+   ³  ³  ³  ÃÄlcd_gotoxy  0/35  Ram=4
+   ³  ³  ³  ³  ÀÄlcd_send_byte  0/93  Ram=3
+   ³  ³  ³  ³     ÀÄ*
+   ³  ³  ³  ÃÄ@PSTRINGC7_781  0/86  Ram=4
+   ³  ³  ³  ³  ÃÄlcd_putc  0/42  Ram=1
+   ³  ³  ³  ³  ³  ÃÄlcd_send_byte  0/93  Ram=3
+   ³  ³  ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ³  ³  ÃÄ@delay_ms2  0/21  Ram=1
+   ³  ³  ³  ³  ³  ÃÄlcd_gotoxy  0/35  Ram=4
+   ³  ³  ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ³  ³  ÃÄlcd_send_byte  0/93  Ram=3
+   ³  ³  ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ³  ³  ÀÄlcd_send_byte  0/93  Ram=3
+   ³  ³  ³  ³  ³     ÀÄ*
+   ³  ³  ³  ³  ÀÄlcd_putc  0/42  Ram=1
+   ³  ³  ³  ³     ÀÄ*
+   ³  ³  ³  ÃÄ@PSTRINGC7_781  0/86  Ram=4
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄlcd_gotoxy  0/35  Ram=4
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄ@PSTRINGC7_781  0/86  Ram=4
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄ@PSTRINGC7_781  0/86  Ram=4
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÀÄ_KhoiDongBanPhim  (Inline)  Ram=1
+   ³  ³  ³     ÀÄ_DieuKhienCot  0/47  Ram=2
+   ³  ³  ³        ÀÄ@goto11238  0/8  Ram=0
+   ³  ³  ÀÄinit_variable  (Inline)  Ram=2
+   ³  ³     ÀÄ@const852  0/5  Ram=0
+   ³  ÃÄ@delay_ms2  0/21  Ram=1
+   ³  ÃÄChangePass  0/333  Ram=4
+   ³  ³  ÃÄ@PSTRINGC7_781  0/86  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄlcd_gotoxy  0/35  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PSTRINGC7_781  0/86  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄlcd_gotoxy  0/35  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄTypingPass  0/102  Ram=3
+   ³  ³  ³  ÃÄ@const852  0/5  Ram=0
+   ³  ³  ³  ÃÄ_QuetPhimNhan  0/318  Ram=2
+   ³  ³  ³  ³  ÃÄ_DieuKhienCot  0/47  Ram=2
+   ³  ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ³  ÃÄ_DieuKhienCot  0/47  Ram=2
+   ³  ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ³  ÃÄ_DieuKhienCot  0/47  Ram=2
+   ³  ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ³  ÃÄ_DieuKhienCot  0/47  Ram=2
+   ³  ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ³  ÃÄ_DieuKhienCot  0/47  Ram=2
+   ³  ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ³  ÃÄ_DieuKhienCot  0/47  Ram=2
+   ³  ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ³  ÃÄ_DieuKhienCot  0/47  Ram=2
+   ³  ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ³  ÃÄ_DieuKhienCot  0/47  Ram=2
+   ³  ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ³  ÀÄ@const803  0/20  Ram=0
+   ³  ³  ³  ÃÄ@delay_ms2  0/21  Ram=1
+   ³  ³  ³  ÃÄlcd_putc  0/42  Ram=1
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄlcd_gotoxy  0/35  Ram=4
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄlcd_putc  0/42  Ram=1
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÀÄlcd_putc  0/42  Ram=1
+   ³  ³  ³     ÀÄ*
+   ³  ³  ÃÄlcd_putc  0/42  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PSTRINGC7_781  0/86  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄlcd_gotoxy  0/35  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PSTRINGC7_781  0/86  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄlcd_gotoxy  0/35  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄTypingPass  0/102  Ram=3
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄlcd_putc  0/42  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄlcd_putc  0/42  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PSTRINGC7_781  0/86  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄlcd_gotoxy  0/35  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PSTRINGC7_781  0/86  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄeeprom_write_string  (Inline)  Ram=4
+   ³  ³  ÃÄ@delay_ms2  0/21  Ram=1
+   ³  ³  ÃÄInit_system  0/139  Ram=0
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PSTRINGC7_781  0/86  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄlcd_gotoxy  0/35  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PSTRINGC7_781  0/86  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄlcd_gotoxy  0/35  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PSTRINGC7_781  0/86  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄdevice_Alert  0/13  Ram=0
+   ³  ³  ÃÄ@delay_ms2  0/21  Ram=1
+   ³  ³  ÃÄdevice_Alert_Stop  0/13  Ram=0
+   ³  ³  ÃÄ@PSTRINGC7_781  0/86  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄlcd_gotoxy  0/35  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PSTRINGC7_781  0/86  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@delay_ms2  0/21  Ram=1
+   ³  ³  ÀÄInit_system  0/139  Ram=0
+   ³  ³     ÀÄ*
+   ³  ÃÄ@delay_ms2  0/21  Ram=1
+   ³  ÃÄeeprom_read_string  0/36  Ram=8
+   ³  ÃÄ_QuetPhimNhan  0/318  Ram=2
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms2  0/21  Ram=1
+   ³  ÃÄlcd_gotoxy  0/35  Ram=4
+   ³  ³  ÀÄ*
+   ³  ÃÄlcd_gotoxy  0/35  Ram=4
+   ³  ³  ÀÄ*
+   ³  ÃÄ@PSTRINGC7_781  0/86  Ram=4
+   ³  ³  ÀÄ*
+   ³  ÃÄlcd_gotoxy  0/35  Ram=4
+   ³  ³  ÀÄ*
+   ³  ÃÄ@PSTRINGC7_781  0/86  Ram=4
+   ³  ³  ÀÄ*
+   ³  ÃÄlcd_gotoxy  0/35  Ram=4
+   ³  ³  ÀÄ*
+   ³  ÃÄ@PSTRINGC7_781  0/86  Ram=4
+   ³  ³  ÀÄ*
+   ³  ÃÄlcd_gotoxy  0/35  Ram=4
+   ³  ³  ÀÄ*
+   ³  ÃÄ@PSTRINGC7_781  0/86  Ram=4
+   ³  ³  ÀÄ*
+   ³  ÃÄlcd_putc  0/42  Ram=1
+   ³  ³  ÀÄ*
+   ³  ÃÄmenu_TypingPass  0/21  Ram=0
+   ³  ³  ÃÄlcd_putc  0/42  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄlcd_gotoxy  0/35  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PSTRINGC7_781  0/86  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÀÄlcd_gotoxy  0/35  Ram=4
+   ³  ³     ÀÄ*
+   ³  ÃÄTypingPass  0/102  Ram=3
+   ³  ³  ÀÄ*
+   ³  ÃÄCheckPass  0/39  Ram=3
+   ³  ³  ÀÄlcd_putc  0/42  Ram=1
+   ³  ³     ÀÄ*
+   ³  ÃÄCorrectPassword  0/16  Ram=0
+   ³  ³  ÃÄlcd_putc  0/42  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄlcd_gotoxy  0/35  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÀÄ@PSTRINGC7_781  0/86  Ram=4
+   ³  ³     ÀÄ*
+   ³  ÃÄdevice_Unlock  0/13  Ram=0
+   ³  ÃÄ@delay_ms2  0/21  Ram=1
+   ³  ÃÄdevice_Lock  0/13  Ram=0
+   ³  ÃÄInit_system  0/139  Ram=0
+   ³  ³  ÀÄ*
+   ³  ÃÄIncorrectPassword  0/123  Ram=1
+   ³  ³  ÃÄlcd_putc  0/42  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄlcd_gotoxy  0/35  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PSTRINGC7_781  0/86  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄdevice_Alert  0/13  Ram=0
+   ³  ³  ÃÄ@delay_ms2  0/21  Ram=1
+   ³  ³  ÃÄdevice_Alert_Stop  0/13  Ram=0
+   ³  ³  ÃÄlcd_putc  0/42  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄlcd_gotoxy  0/35  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PSTRINGC7_781  0/86  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄlcd_gotoxy  0/35  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄdevice_Alert  0/13  Ram=0
+   ³  ³  ÃÄlcd_putc  0/42  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄlcd_gotoxy  0/35  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PSTRINGC7_781  0/86  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄlcd_gotoxy  0/35  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PSTRINGC7_781  0/86  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@delay_ms2  0/21  Ram=1
+   ³  ³  ÃÄlcd_putc  0/42  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄlcd_gotoxy  0/35  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PSTRINGC7_781  0/86  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@delay_ms2  0/21  Ram=1
+   ³  ³  ÃÄdevice_Alert_Stop  0/13  Ram=0
+   ³  ³  ÀÄInit_system  0/139  Ram=0
+   ³  ³     ÀÄ*
+   ³  ÃÄmenu_TypingPass  0/21  Ram=0
+   ³  ³  ÀÄ*
+   ³  ÃÄTypingPass  0/102  Ram=3
+   ³  ³  ÀÄ*
+   ³  ÃÄCheckPass  0/39  Ram=3
+   ³  ³  ÀÄ*
+   ³  ÃÄCorrectPassword  0/16  Ram=0
+   ³  ³  ÀÄ*
+   ³  ÃÄChangePass  0/333  Ram=4
+   ³  ³  ÀÄ*
+   ³  ÃÄIncorrectPassword  0/123  Ram=1
+   ³  ³  ÀÄ*
+   ³  ÀÄlcd_putc  0/42  Ram=1
+   ³     ÀÄ*
+   ÀÄEXT_isr  0/13  Ram=1
+      ÃÄdevice_Unlock  0/13  Ram=0
+      ÃÄ@delay_ms2  0/21  Ram=1
+      ÀÄdevice_Lock  0/13  Ram=0

@@ -1,0 +1,374 @@
+#include <main.h>
+
+#define Lock(x) output_bit(PIN_C3,x)
+#define Buzzer(x) output_bit(PIN_C2,x)
+#define LED_Green(x) output_bit(PIN_C0,x)
+#define LED_Red(x) output_bit(PIN_C1,x)
+#define size_pass 4
+
+//int size_pass=4; //Set size pass =4
+signed char key=-1; // Variable to hold value of key press
+int index_pointer,lcd_pointer;
+int Check_count;
+int Check_flag,Change_flag;
+char InputPass[size_pass]="";
+// char pass[size_pass]={'1','2','3','4'};
+char pass[size_pass]={};
+int pass_flag;
+
+void init_screen();
+void init_variable();
+void Init_system();
+void menu_TypingPass();
+void menu_ChangePass();
+void TypingPass();
+void CheckPass(char *Check);
+void CorrectPassword();
+void IncorrectPassword();
+void ChangePass();
+void device_Unlock();
+void device_Lock();
+void device_Alert();
+void device_Alert_Stop();
+
+void eeprom_write_string(unsigned int8 addr,unsigned char*str)
+{
+  while(*str)
+  {
+  write_eeprom(addr,*str);
+  addr++;
+  str++;
+  }
+}
+void eeprom_read_string(unsigned int8 addr, unsigned char* str,unsigned int8 len)
+{
+  unsigned int8 i;
+  for(i=0;i<len;i++)
+  {
+      str[i]=read_eeprom(addr+i);
+  }
+  str[len]=0;
+}
+#INT_EXT
+void EXT_isr(void)
+{
+   device_Unlock();
+   delay_ms(5000);
+   device_Lock();
+}
+
+void main()
+{
+Init_system();
+set_tris_B(0x01); //(output =0) - (input=1)  ?
+set_tris_C(0x0F);                      //    ?
+enable_interrupts(INT_EXT);            //    ?
+enable_interrupts(GLOBAL);             //    ?
+
+pass_flag=read_eeprom(0x00);
+delay_ms(2);
+
+//--- Kiem tra Pass duoc set chua ---//
+if(pass_flag==-1){
+   LED_Green(1);
+   ChangePass();
+   write_eeprom(0x00,1);
+   delay_ms(2);
+}
+//---Kiểm tra đã set pass chưa??? --//
+
+//-----------------------CLEAR EEPROM------------//
+// char test_clear[8]={0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF};
+// eeprom_write_string(0x00,test_clear);
+// delay_ms(2);
+// eeprom_write_string(0x08,test_clear);
+// delay_ms(2);
+// eeprom_write_string(0x10,test_clear);
+// delay_ms(2);
+// eeprom_write_string(0x18,test_clear);
+// delay_ms(2);
+// eeprom_write_string(0x20,test_clear);
+// delay_ms(2);
+// eeprom_write_string(0x28,test_clear);
+// delay_ms(2);
+// eeprom_write_string(0x30,test_clear);
+// delay_ms(2);
+// eeprom_write_string(0x38,test_clear);
+// delay_ms(2);
+//-----------------------CLEAR EEPROM------------//
+
+eeprom_read_string(0x08,pass,size_pass);
+// sprintf(test,"1111");
+//!read_eeprom(addr);
+//!write_eeprom(addr,data);
+
+while(TRUE)
+{
+   key=_QuetPhimNhan();
+   delay_ms(50);
+   lcd_gotoxy(1,1);
+   if(key!=-1)
+      {
+         switch(key)
+         {
+         case 'd':
+               if(lcd_pointer==0)
+               {
+                  lcd_gotoxy(1,1);
+                  lcd_putc("  ");
+                  lcd_gotoxy(1,2);
+                  lcd_putc("> ");
+                  lcd_pointer=1;
+               }
+               else
+               {
+                  lcd_gotoxy(1,1);
+                  lcd_putc("> ");
+                  lcd_gotoxy(1,2);
+                  lcd_putc("  ");
+                  lcd_pointer=0;
+               }
+               break;
+         case '\f': 
+                  lcd_putc(key);
+                  break;
+         case 'e':
+               if(lcd_pointer==0)
+               {
+                  menu_TypingPass();
+                  do{
+                     TypingPass();
+                     CheckPass(InputPass);
+                     if(Check_flag==0){
+                        CorrectPassword();
+                        device_Unlock();
+                        delay_ms(3000);
+                        device_Lock();
+                        Init_system();
+                        // break;
+                     }
+                     else{
+                        IncorrectPassword();
+                     }
+                  }while(Check_flag==1);  
+               }
+               else 
+               {
+                  menu_TypingPass();
+                  do{
+                     TypingPass();
+                     CheckPass(InputPass);
+                     if(Check_flag==0){
+                        CorrectPassword();
+                        LED_Green(1);
+                        ChangePass();
+                     }
+                     else{
+                        IncorrectPassword();
+                     }
+                  }while(Check_flag==1);
+                  
+               }
+               break;
+         default:
+               lcd_putc(key);
+               break;
+         }         
+      }
+
+   //TODO: User Code
+}
+}
+void init_screen(){
+   lcd_init();
+   lcd_gotoxy(1,1);
+   lcd_putc("> ");
+   lcd_putc("Unlock");
+   lcd_gotoxy(1,2);
+   lcd_putc("  ");
+   lcd_putc("Change Pass");
+   _KhoiDongBanPhim();
+}
+void init_variable(){
+   index_pointer=0;
+   Check_count=0;
+   Check_flag=0;
+   lcd_pointer=0;
+   InputPass="";
+   Change_flag=0;
+}
+void Init_system(){
+   init_screen();
+   init_variable();
+}
+
+void menu_TypingPass(){
+   lcd_putc('\f');
+   lcd_gotoxy(3,1);
+   lcd_putc("Type Pass");
+   lcd_gotoxy(1,2);
+}
+void TypingPass(){
+   int Typing=1;
+   InputPass="";
+   int count=size_pass;
+   while(Typing)
+   {
+      key=_QuetPhimNhan();
+      delay_ms(50);
+      if(key=='e'||count==0)
+         {
+            Typing=0;
+            lcd_putc('\f');
+            lcd_gotoxy(1,1);
+            while(count<size_pass)
+            {
+               lcd_putc(InputPass[count]);
+               count++;
+            }  
+         }
+      if(key>-1 && key!='\f' && key!='u' && key!='d' && key!='e'&& key!='*')
+         {
+            lcd_putc(key);
+            InputPass[size_pass-count]=key;
+            count--;
+         }
+   } 
+}
+void CheckPass(char *check){
+   Check_flag=0; // 0 is right password
+   int count=0;
+   while(count<size_pass)
+      {
+         lcd_putc(check[count]);
+         if(check[count]!=pass[count])
+            {
+               Check_flag=1;
+               Check_count++;
+               break;
+            }
+         count++;
+      }
+}
+void CorrectPassword(){
+   lcd_putc('\f');
+   lcd_gotoxy(3,1);
+   lcd_putc("Correct");
+   
+}
+void device_Unlock(){
+   Lock(1);
+   LED_Green(1);
+   
+}
+void device_Lock(){
+   Lock(0);
+   LED_Green(0);
+}
+void device_Alert(){
+   Buzzer(1);
+   LED_Red(1);
+}
+void device_Alert_Stop(){
+   Buzzer(0);
+   LED_Red(0);
+}
+void IncorrectPassword(){
+   lcd_putc('\f');
+   lcd_gotoxy(3,1);
+   lcd_putc("Incorrect");
+   device_Alert();
+   delay_ms(3000);
+   device_Alert_Stop();
+   lcd_putc('\f');
+   lcd_gotoxy(1,1);
+   lcd_putc("Retype Pass:");
+   lcd_gotoxy(1,2);
+   // CheckPass(TypingPass());
+   if(Check_count==2)
+      {
+         device_Alert();
+         lcd_putc('\f');
+         lcd_gotoxy(1,1);
+         lcd_putc("Incorrect");
+         lcd_gotoxy(1,2);
+         lcd_putc("2 times");
+         delay_ms(3000);
+         lcd_putc('\f');
+         lcd_gotoxy(1,1);
+         lcd_putc("Restarting.......");
+         delay_ms(5000);
+         device_Alert_Stop();
+         Init_system();
+      }
+}
+
+void ChangePass(){
+   int count=0;
+   Check_count=0;
+   Check_flag=0;
+   Change_flag=0; // 1 for successful change
+   lcd_putc("\f");
+   lcd_gotoxy(1,1);
+   lcd_putc("New Password:");
+   lcd_gotoxy(1,2);
+   TypingPass();
+   char try_newpass[size_pass]="";
+   while(count<size_pass)
+   {
+      lcd_putc(InputPass[count]);
+      try_newpass[count]=InputPass[count];
+      // lcd_putc(check[count]);
+      // try_newpass[count]=check[count];
+      count++;
+   }
+   lcd_putc("\f");
+   lcd_gotoxy(3,1);
+   lcd_putc("Retype:");
+   lcd_gotoxy(1,2);
+   TypingPass();
+   count=0;
+   while(count<size_pass)
+      {
+         lcd_putc(InputPass[count]);
+         if(try_newpass[count]!=InputPass[count])
+            {
+               Check_flag=1;
+               break;
+            }
+         count++;
+      }
+   if(Check_flag==0){
+      count=0;
+      while(count<size_pass)
+         {
+            lcd_putc(InputPass[count]);
+            pass[count]=try_newpass[count];
+            count++;
+         }
+      lcd_putc("\f");
+      lcd_gotoxy(1,1);
+      lcd_putc("Pass is Changed");
+      eeprom_write_string(0x08,pass);
+      delay_ms(3000);
+      LED_Green(0);
+      Init_system();
+      }
+   else{
+      LED_Green(0);
+      lcd_putc("\f");
+      lcd_gotoxy(1,1);
+      lcd_putc("Retype Password");
+      lcd_gotoxy(1,2);
+      lcd_putc("doesn't match");
+      device_Alert();
+      delay_ms(3000);
+      device_Alert_Stop();
+      lcd_putc("\f");
+      lcd_gotoxy(1,1);
+      lcd_putc("Restarting.......");
+      delay_ms(5000);
+      Init_system();
+   }
+}
+
